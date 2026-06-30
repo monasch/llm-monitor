@@ -1,0 +1,43 @@
+The following is a math problem, a reference solution, and an AI-generated solution. The AI-generated solution is split into paragraphs (steps), each enclosed in tags and indexed starting from 0.
+
+[Math Problem]
+
+{problem}
+
+[Reference Solution]
+
+{solution}
+
+[AI's Solution]
+
+{response}
+
+Your task is to evaluate the correctness of each paragraph (step) in the AI's solution.
+
+Use the reference solution to determine whether the reasoning and mathematical operations in each paragraph are correct.
+
+For each paragraph, assign:
+
+* 0 → the paragraph is correct (the reasoning and calculations are valid and consistent with the problem and the reference solution).
+* 1 → the paragraph contains an error (any mathematical mistake, incorrect reasoning, invalid step, or contradiction with the problem or reference solution).
+
+Important instructions:
+
+* Evaluate each paragraph independently.
+* The output list must contain one entry per paragraph, in the same order as the paragraph indices.
+* The length of the list must equal the number of paragraphs in the AI solution.
+
+Example:
+If the AI solution contains 5 paragraphs, and paragraphs 2 and 4 contain errors, the output should be:
+
+[0, 0, 1, 0, 1]
+
+where 0 = correct and 1 = error.
+
+Return your final answer as the list enclosed in:
+
+[
+\boxed{[...]}
+]
+
+Do not include any explanation inside the boxed answer.

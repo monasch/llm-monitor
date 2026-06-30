@@ -1,0 +1,41 @@
+name: llm-monitor
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+
+  # PyTorch — installs the CUDA 12.1 build if a GPU is present;
+  # change cudatoolkit version to match your driver if needed.
+  # For CPU-only machines replace the three lines below with:
+  #   - pytorch::pytorch
+  #   - pytorch::torchvision
+  #   - pytorch::cpuonly
+  - pytorch::pytorch>=2.2
+  - pytorch::pytorch-cuda=12.1
+
+  - pip:
+    # Anthropic SDK (generator: claude)
+    - anthropic>=0.25
+
+    # HuggingFace stack
+    - transformers>=4.40.0   # minimum required by Qwen2.5-Math-PRM-7B
+    - datasets>=2.18
+    - accelerate>=0.29       # required for device_map="auto" in all models
+    - huggingface-hub>=0.22  # model/dataset downloading
+
+    # Tokenizer backends used by Qwen / Mistral models
+    - sentencepiece>=0.2.0
+    - protobuf>=4.25         # sentencepiece dependency
+    - tiktoken>=0.6          # used by some Qwen tokenizers
+
+    # Numerics / data
+    - pandas>=2.0
+    - numpy>=1.26
+
+    # Optional but strongly recommended: faster BF16 attention kernels
+    # Comment out if you hit build issues on older GPUs.
