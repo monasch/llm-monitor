@@ -173,6 +173,9 @@ output/              Precomputed generations, scoring signals and monitor perfor
 
 ```
 
+## Acknowledgements
+
+The code is build on top of the [e-valuator](https://github.com/shuvom-s/e-valuator) code base. The Robert Bosch GmbH is acknowledged for financial support.
 
 
 ## Citation 
