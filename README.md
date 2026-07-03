@@ -1,6 +1,6 @@
 # Online Safety Monitoring for LLMs
 
-This repository contains the code for the paper [Online Safety Monitoring for LLMs]() published in the ICML 2026 Workshop on Hypothesis Testing. Given a stream of per-step safety signals, the monitor raises an alarm online if the safety risk becomes too high. The monitor comes with formal false-alarm and missed-detection guarantees.
+This repository contains the code for the paper [Online Safety Monitoring for LLMs](https://arxiv.org/abs/2607.02510) published in the ICML 2026 Workshop on Hypothesis Testing. Given a stream of per-step safety signals, the monitor raises an alarm online if the safety risk becomes too high. The monitor comes with formal false-alarm and missed-detection guarantees.
 
 <p align="center">
   <img width="600" src="thumbnail.png">
@@ -22,10 +22,10 @@ The repository supports the two monitors studied in the paper (CRC and UCB) as w
 
 Monitor | Guarantee | Formulation | Implementation | 
 |---|---|---|---|
-Conformal Risk Control (CRC) | Risk is controlled **in expectation** [Eq 3]() | [Eq 4]() | [`notebooks/compare_monitors.ipynb`](notebooks/compare_monitors.ipynb) 
-Upper Confidence Bound (UCB) | Risk is controlled **with high probability** [Eq 5]()  | [Eq 6]() | [`notebooks/compare_monitors.ipynb`](notebooks/compare_monitors.ipynb) 
-E-valuator-anytime | Risk is controlled **with high probability** [Eq 5]() | [E-valuator, Sec. 2.2](https://arxiv.org/pdf/2512.03109#page=3.49) | [`src/evaluator/evaluator.py`](src/evaluator/evaluator.py) 
-E-valuator-PAC | Risk is controlled **with high probability uniformly over all time steps** [E-valuator, Eq 1]() | [E-valuator, Sec. 2.3](https://arxiv.org/pdf/2512.03109#page=4.58) | [`src/evaluator/evaluator.py`](src/evaluator/evaluator.py) 
+Conformal Risk Control (CRC) | Risk is controlled *in expectation*, [Eq 3](https://arxiv.org/pdf/2607.02510#page=2.46) | [Eq 4](https://arxiv.org/pdf/2607.02510#page=2.46) | [`notebooks/compare_monitors.ipynb`](notebooks/compare_monitors.ipynb) 
+Upper Confidence Bound (UCB) | Risk is controlled *with high probability*, [Eq 5](https://arxiv.org/pdf/2607.02510#page=2.46)  | [Eq 6](https://arxiv.org/pdf/2607.02510#page=2.46) | [`notebooks/compare_monitors.ipynb`](notebooks/compare_monitors.ipynb) 
+E-valuator-anytime | Risk is controlled *with high probability*, [Eq 5](https://arxiv.org/pdf/2607.02510#page=2.46) and [E-valuator, Prop 1 ](https://arxiv.org/pdf/2512.03109#page=4.58) | [E-valuator, Sec. 2.2](https://arxiv.org/pdf/2512.03109#page=3.49) | [`src/evaluator/evaluator.py`](src/evaluator/evaluator.py) 
+E-valuator-PAC | Risk is controlled *with high probability uniformly over all time steps*, [E-valuator, Eq 1](https://arxiv.org/pdf/2512.03109#page=3.49) | [E-valuator, Sec. 2.3](https://arxiv.org/pdf/2512.03109#page=4.58) | [`src/evaluator/evaluator.py`](src/evaluator/evaluator.py) 
 
 
 ## Use Cases and Models
@@ -150,8 +150,6 @@ Runs `python_scripts/merge_signal_label.py` to join the PRM signal and judge lab
 
 `python_scripts/llama_guard.py` loads the `Anthropic/hh-rlhf` red-team-attempts dataset and scores each conversation prefix with Llama Guard 3-8B. Requires a HuggingFace token with access to the gated model (`--hf-token` flag or `HF_TOKEN` env var).
 
-**Note:** the script's current output does not yet match the schema of the precomputed `output/harmfullness/anthropic-redteaming/llama.csv` (an example command and the conversion step to reproduce that file are TODO).
-
 
 #### FineHarm
 
@@ -171,7 +169,7 @@ python_scripts/      Python entry points for each pipeline stage
 src/evaluator/       Source code of E-valuator baseline
 notebooks/           Produce paper figures
 templates/           Prompt templates for generation and labeling
-output/              Precomputed metadata and monitor performance
+output/              Precomputed generations, scoring signals and monitor performance
 
 ```
 
