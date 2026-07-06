@@ -48,10 +48,10 @@ output/factuality/merged_metadata/
     merged_claude-haiku-4-5-20251001_qwen_all.csv
     merged_claude-haiku-4-5-20251001_mathshepherd_all.csv
 
-output/harmfulness/anthropic-redteaming/
+output/harmfullness/anthropic-redteaming/
     llama.csv
 
-output/harmfulness/fineharm/
+output/harmfullness/fineharm/
     test_predictions.npz          # from FineHarm repo (see below)
 ```
 
@@ -156,7 +156,7 @@ Runs `python_scripts/merge_signal_label.py` to join the PRM signal and judge lab
 Use the [FineHarm repository](https://github.com/ICTMCG/SCM) to generate predictions, then copy the output file into this repo:
 
 ```
-output/harmfulness/fineharm/test_predictions.npz
+output/harmfullness/fineharm/test_predictions.npz
 ```
 
 
