@@ -39,7 +39,7 @@ We compare monitors on two safety use cases: factuality via mathematical reasoni
 ## Precomputed Data
 Precomputed data is available at [this google drive link](https://drive.google.com/file/d/10WougyJRPxhquM-YHUn8WXCq3FbKQHrU/view?usp=sharing). Unzip the output.zip file and add the output folder to the repository as `llm_monitor/output`. 
 
-This contains all metadata needed to compare the monitors without reruning the pipeline:
+This contains all metadata needed to compare the monitors without rerunning the pipeline:
 
 ```
 output/factuality/merged_metadata/
@@ -48,10 +48,10 @@ output/factuality/merged_metadata/
     merged_claude-haiku-4-5-20251001_qwen_all.csv
     merged_claude-haiku-4-5-20251001_mathshepherd_all.csv
 
-output/harmfullness/anthropic-redteaming/
+output/harmfulness/anthropic-redteaming/
     llama.csv
 
-output/harmfullness/fineharm/
+output/harmfulness/fineharm/
     test_predictions.npz          # from FineHarm repo (see below)
 ```
 
@@ -156,7 +156,7 @@ Runs `python_scripts/merge_signal_label.py` to join the PRM signal and judge lab
 Use the [FineHarm repository](https://github.com/ICTMCG/SCM) to generate predictions, then copy the output file into this repo:
 
 ```
-output/harmfullness/fineharm/test_predictions.npz
+output/harmfulness/fineharm/test_predictions.npz
 ```
 
 
@@ -175,7 +175,7 @@ output/              Precomputed generations, scoring signals and monitor perfor
 
 ## Acknowledgements
 
-The code is build on top of the [e-valuator](https://github.com/shuvom-s/e-valuator) code base. The Robert Bosch GmbH is acknowledged for financial support.
+The code is built on top of the [e-valuator](https://github.com/shuvom-s/e-valuator) code base. The Robert Bosch GmbH is acknowledged for financial support.
 
 
 ## Citation 
